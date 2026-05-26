@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-TW" data-theme="light" style=""><head><meta charset="utf-8"><link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&amp;family=Inter:wght@300;400;500;600;700;800&amp;family=Noto+Sans+TC:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet" data-editor-preserved="true"><link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" data-editor-preserved="true">
+
+
+<title>JAZZ SHIP 預購｜Make Friends Through Music</title>
+
+
+
+
+
+<style>
+  :root{
+    --navy:#1f3a5f;
+    --navy-deep:#142a47;
+    --gold:#c9a14a;
+    --gold-soft:#e3c478;
+    --grey-blue:#8aa3c0;
+    --bg:#ffffff;
+    --bg-soft:#f7f9fc;
+    --line:#e6ebf2;
+    --text:#1a2438;
+    --text-soft:#5b6478;
+    --radius:16px;
+    --shadow-sm:0 2px 10px rgba(31,58,95,.06);
+    --shadow-md:0 8px 30px rgba(31,58,95,.10);
+    --shadow-lg:0 20px 60px rgba(31,58,95,.15);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter','Noto Sans TC',sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{max-width:100%;display:block}
+  a{color:inherit;text-decoration:none}
+
+  /* ==== NAVBAR ==== */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:1200px;margin:0 auto;
+    padding:14px 24px;
+    display:flex;align-items:center;justify-content:space-between;
+  }
+  .logo{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.5rem;letter-spacing:3px;
+    color:var(--navy);
+  }
+  .logo span{color:var(--gold)}
+  .nav-links{display:flex;gap:32px;align-items:center}
+  .nav-links a{
+    font-size:.92rem;font-weight:500;color:var(--text-soft);
+    transition:color .2s;
+  }
+  .nav-links a:hover{color:var(--navy)}
+  .nav-cta{
+    background:var(--navy);color:#fff !important;
+    padding:9px 20px;border-radius:999px;
+    font-weight:600;font-size:.88rem;
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--gold);transform:translateY(-1px)}
+  @media(max-width:768px){.nav-links a:not(.nav-cta){display:none}}
+
+  /* ==== HERO ==== */
+  .hero{
+    padding:140px 24px 80px;
+    background:
+      radial-gradient(ellipse at top right, rgba(201,161,74,.08), transparent 60%),
+      radial-gradient(ellipse at bottom left, rgba(31,58,95,.06), transparent 60%),
+      var(--bg);
+    position:relative;overflow:hidden;
+  }
+  .hero-inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;
+  }
+  .hero-badge{
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(201,161,74,.12);
+    color:var(--gold);
+    padding:7px 16px;border-radius:999px;
+    font-size:.82rem;font-weight:600;letter-spacing:1px;
+    margin-bottom:24px;
+    border:1px solid rgba(201,161,74,.25);
+  }
+  .hero-badge i{font-size:.7rem}
+  .hero h1{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(2.8rem,6vw,4.8rem);
+    line-height:1;letter-spacing:2px;
+    color:var(--navy);
+    margin-bottom:20px;
+  }
+  .hero h1 .gold{color:var(--gold)}
+  .hero-sub{
+    font-size:1.05rem;color:var(--text-soft);
+    margin-bottom:36px;max-width:480px;
+  }
+  .hero-meta{
+    display:flex;gap:32px;margin-bottom:36px;flex-wrap:wrap;
+  }
+  .meta-item{display:flex;align-items:center;gap:10px}
+  .meta-icon{
+    width:38px;height:38px;border-radius:10px;
+    background:rgba(31,58,95,.08);
+    display:grid;place-items:center;color:var(--navy);
+  }
+  .meta-label{font-size:.78rem;color:var(--text-soft);text-transform:uppercase;letter-spacing:1px}
+  .meta-value{font-size:.95rem;font-weight:600;color:var(--navy)}
+  .hero-buttons{display:flex;gap:14px;flex-wrap:wrap}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 28px;border-radius:999px;
+    font-weight:600;font-size:.95rem;
+    transition:all .25s;cursor:pointer;border:none;
+    font-family:inherit;
+  }
+  .btn-primary{
+    background:var(--navy);color:#fff;
+    box-shadow:0 8px 24px rgba(31,58,95,.25);
+  }
+  .btn-primary:hover{background:var(--gold);transform:translateY(-2px);box-shadow:0 12px 30px rgba(201,161,74,.35)}
+  .btn-ghost{
+    background:transparent;color:var(--navy);
+    border:1.5px solid var(--line);
+  }
+  .btn-ghost:hover{border-color:var(--navy);background:var(--bg-soft)}
+
+  .hero-image{
+    position:relative;
+  }
+  .hero-image-wrap{
+    background:linear-gradient(135deg,#f4f7fb 0%,#fff 100%);
+    border-radius:24px;
+    padding:30px;
+    box-shadow:var(--shadow-lg);
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-image-wrap::before{
+    content:"";position:absolute;top:-50%;right:-50%;
+    width:200%;height:200%;
+    background:radial-gradient(circle,rgba(201,161,74,.08) 0%,transparent 50%);
+    pointer-events:none;
+  }
+  .hero-image-wrap img{
+    border-radius:14px;
+    position:relative;z-index:1;
+  }
+  .hero-tag{
+    position:absolute;top:20px;right:20px;
+    background:var(--navy);color:#fff;
+    padding:8px 16px;border-radius:999px;
+    font-size:.78rem;font-weight:700;letter-spacing:1px;
+    z-index:2;
+    box-shadow:var(--shadow-md);
+  }
+  @media(max-width:900px){
+    .hero-inner{grid-template-columns:1fr;gap:40px}
+    .hero{padding-top:110px}
+  }
+
+  /* ==== SECTION COMMON ==== */
+  section{padding:90px 24px}
+  .container{max-width:1200px;margin:0 auto}
+  .section-head{text-align:center;margin-bottom:60px}
+  .section-tag{
+    display:inline-block;
+    color:var(--gold);font-weight:700;letter-spacing:3px;
+    text-transform:uppercase;font-size:.8rem;
+    margin-bottom:12px;
+  }
+  .section-title{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:clamp(2rem,4vw,3rem);
+    color:var(--navy);letter-spacing:2px;
+    margin-bottom:14px;
+  }
+  .section-desc{
+    color:var(--text-soft);max-width:600px;margin:0 auto;
+  }
+
+  /* ==== PRODUCT GALLERY ==== */
+  .product{background:var(--bg-soft)}
+  .product-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:50px;
+    align-items:start;
+  }
+  .gallery-main{
+    background:#fff;border-radius:var(--radius);
+    padding:24px;box-shadow:var(--shadow-md);
+    aspect-ratio:1;display:grid;place-items:center;
+    overflow:hidden;
+  }
+  .gallery-main img{
+    max-height:100%;width:auto;
+    transition:transform .4s;
+  }
+  .gallery-main:hover img{transform:scale(1.03)}
+  .gallery-thumbs{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
+    margin-top:14px;
+  }
+  .thumb{
+    background:#fff;border-radius:10px;padding:10px;
+    cursor:pointer;border:2px solid transparent;
+    transition:all .2s;aspect-ratio:1;
+    display:grid;place-items:center;overflow:hidden;
+  }
+  .thumb.active{border-color:var(--navy)}
+  .thumb:hover{border-color:var(--gold)}
+  .thumb img{max-height:100%}
+
+  .product-info h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.4rem;letter-spacing:2px;
+    color:var(--navy);margin-bottom:8px;
+  }
+  .product-info .subtitle{
+    color:var(--gold);font-weight:600;letter-spacing:2px;
+    text-transform:uppercase;font-size:.85rem;margin-bottom:24px;
+  }
+  .price-row{
+    display:flex;align-items:baseline;gap:14px;
+    margin-bottom:8px;
+    padding:24px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);
+  }
+  .price{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:3rem;color:var(--navy);letter-spacing:2px;
+  }
+  .price .currency{font-size:1.4rem;color:var(--gold);margin-right:4px}
+  .price-note{color:var(--text-soft);font-size:.9rem}
+  .features{
+    list-style:none;margin:28px 0;display:grid;gap:12px;
+  }
+  .features li{
+    display:flex;align-items:flex-start;gap:12px;
+    color:var(--text);font-size:.95rem;
+  }
+  .features i{
+    color:var(--gold);margin-top:4px;flex-shrink:0;
+  }
+  @media(max-width:900px){.product-grid{grid-template-columns:1fr;gap:30px}}
+
+  /* ==== CHECKOUT PANEL ==== */
+  .order-form{
+    background:#fff;border-radius:var(--radius);
+    padding:32px;box-shadow:var(--shadow-md);
+    border:1px solid var(--line);
+  }
+  .form-title{
+    font-weight:700;font-size:1.1rem;color:var(--navy);
+    margin-bottom:16px;display:flex;align-items:center;gap:10px;
+  }
+  .form-title i{color:var(--gold)}
+  .checkout-lead{
+    color:var(--text-soft);font-size:.96rem;
+    margin-bottom:22px;
+  }
+  .total-row{
+    background:linear-gradient(135deg,#f7f9fc 0%,#eef3fa 100%);
+    padding:18px 22px;border-radius:12px;
+    display:flex;justify-content:space-between;align-items:center;
+    margin:24px 0 18px;
+  }
+  .total-label{color:var(--text-soft);font-size:.92rem}
+  .total-amount{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2rem;color:var(--navy);letter-spacing:1px;
+  }
+  .total-amount .currency{color:var(--gold);font-size:1.1rem;margin-right:4px}
+  .payment-badges{
+    display:flex;flex-wrap:wrap;gap:10px;
+    margin-bottom:20px;
+  }
+  .payment-badge{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:10px 14px;border-radius:999px;
+    background:var(--bg-soft);border:1px solid var(--line);
+    color:var(--navy);font-size:.9rem;font-weight:600;
+  }
+  .payment-badge i{color:var(--gold);font-size:1rem}
+  .secure-box{
+    background:linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
+    border:1px solid var(--line);border-radius:14px;
+    padding:18px 18px 8px;margin-bottom:22px;
+  }
+  .field-label{
+    display:block;font-size:.88rem;font-weight:700;
+    color:var(--text);margin-bottom:12px;
+  }
+  .secure-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);
+    gap:12px;
+  }
+  .secure-item{
+    display:flex;align-items:flex-start;gap:12px;
+    background:var(--bg-soft);border-radius:12px;
+    padding:14px;
+  }
+  .secure-item i{
+    color:var(--gold);margin-top:2px;flex-shrink:0;
+  }
+  .secure-item span{
+    color:var(--text-soft);font-size:.88rem;line-height:1.6;
+  }
+  .secure-item strong{color:var(--navy)}
+  .checkout-cta{
+    width:100%;padding:16px;
+    background:var(--navy);color:#fff;
+    border:none;border-radius:12px;
+    font-size:1rem;font-weight:700;letter-spacing:1px;
+    cursor:pointer;
+    transition:all .25s;
+    display:flex;align-items:center;justify-content:center;gap:10px;
+    font-family:inherit;
+    box-shadow:0 8px 24px rgba(31,58,95,.25);
+  }
+  .checkout-cta:hover{
+    background:var(--gold);transform:translateY(-2px);
+    box-shadow:0 12px 30px rgba(201,161,74,.35);
+  }
+  .checkout-subnote,
+  .trust-note{
+    text-align:center;color:var(--text-soft);font-size:.84rem;
+    margin-top:14px;
+  }
+  @media(max-width:640px){
+    .payment-badges{flex-direction:column}
+    .secure-grid{grid-template-columns:1fr}
+  }
+
+  /* ==== SIZE CHART ==== */
+  .size-chart-wrap{
+    background:#fff;border-radius:var(--radius);
+    overflow:hidden;box-shadow:var(--shadow-sm);
+    border:1px solid var(--line);
+    max-width:780px;margin:0 auto;
+  }
+  table{width:100%;border-collapse:collapse}
+  th,td{
+    padding:18px 16px;text-align:center;
+    border-bottom:1px solid var(--line);
+  }
+  thead{background:var(--navy)}
+  thead th{
+    color:#fff;font-weight:600;font-size:.92rem;
+    letter-spacing:1px;text-transform:uppercase;
+  }
+  tbody tr:hover{background:var(--bg-soft)}
+  tbody td{font-size:.95rem;color:var(--text)}
+  tbody tr td:first-child{font-weight:700;color:var(--navy);font-size:1.05rem}
+  .size-note{
+    text-align:center;color:var(--text-soft);font-size:.85rem;
+    margin-top:20px;
+  }
+
+  /* ==== ABOUT ==== */
+  .about{background:var(--bg-soft)}
+  .about-grid{
+    display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:center;
+  }
+  .about-visual{
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
+    border-radius:var(--radius);
+    padding:60px 40px;
+    color:#fff;
+    position:relative;overflow:hidden;
+    aspect-ratio:1;
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .about-visual::before{
+    content:"";position:absolute;
+    top:-30%;right:-30%;width:80%;height:80%;
+    background:radial-gradient(circle,rgba(201,161,74,.25) 0%,transparent 70%);
+  }
+  .about-visual::after{
+    content:"♪";position:absolute;
+    bottom:-30px;right:30px;
+    font-size:14rem;color:rgba(201,161,74,.12);
+    line-height:1;font-family:Georgia,serif;
+  }
+  .about-visual .big-year{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:6rem;color:var(--gold);
+    line-height:1;letter-spacing:3px;
+    position:relative;z-index:1;
+  }
+  .about-visual .since{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:1.3rem;letter-spacing:6px;
+    opacity:.7;position:relative;z-index:1;
+  }
+  .about-visual .tagline{
+    margin-top:30px;font-size:1.1rem;
+    border-top:1px solid rgba(255,255,255,.15);
+    padding-top:24px;position:relative;z-index:1;
+    line-height:1.5;
+  }
+  .about-content h2{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2.6rem;letter-spacing:2px;
+    color:var(--navy);margin-bottom:20px;
+  }
+  .about-content p{
+    color:var(--text-soft);margin-bottom:18px;font-size:1rem;
+  }
+  .stats{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:20px;margin-top:30px;
+  }
+  .stat{
+    text-align:center;padding:20px;
+    background:#fff;border-radius:12px;
+    box-shadow:var(--shadow-sm);
+  }
+  .stat-num{
+    font-family:'Bebas Neue',sans-serif;
+    font-size:2rem;color:var(--gold);letter-spacing:1px;
+  }
+  .stat-label{font-size:.82rem;color:var(--text-soft);margin-top:4px}
+  @media(max-width:900px){.about-grid{grid-template-columns:1fr}.about-visual{aspect-ratio:auto;padding:40px}}
+
+  /* ==== FOOTER ==== */
+  footer{
+    background:var(--navy-deep);color:#fff;
+    padding:60px 24px 30px;
+  }
+  .footer-inner{
+    max-width:1200px;margin:0 auto;
+    display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:50px;
+    margin-bottom:40px;
+  }
+  .footer-brand .logo{color:#fff;font-size:1.8rem}
+  .footer-brand p{
+    color:rgba(255,255,255,.6);
+    margin-top:14px;font-size:.92rem;max-width:340px;
+  }
+  .footer h4{
+    font-size:.85rem;text-transform:uppercase;
+    letter-spacing:2px;color:var(--gold);margin-bottom:18px;
+  }
+  .footer ul{list-style:none}
+  .footer ul li{margin-bottom:10px}
+  .footer a{color:rgba(255,255,255,.7);font-size:.92rem;transition:color .2s}
+  .footer a:hover{color:var(--gold)}
+  .socials{display:flex;gap:12px;margin-top:6px}
+  .social-icon{
+    width:42px;height:42px;border-radius:50%;
+    background:rgba(255,255,255,.08);
+    display:grid;place-items:center;
+    color:#fff;transition:all .25s;
+    font-size:1rem;
+  }
+  .social-icon:hover{background:var(--gold);transform:translateY(-3px)}
+  .footer-bottom{
+    max-width:1200px;margin:0 auto;
+    padding-top:24px;border-top:1px solid rgba(255,255,255,.1);
+    text-align:center;color:rgba(255,255,255,.5);
+    font-size:.85rem;
+  }
+  @media(max-width:768px){.footer-inner{grid-template-columns:1fr;gap:32px}}
+
+  /* ==== ANIMATIONS ==== */
+  .fade-in{
+    opacity:0;transform:translateY(30px);
+    transition:opacity .8s ease, transform .8s ease;
+  }
+  .fade-in.visible{opacity:1;transform:translateY(0)}
+
+</style>
+</head>
+<body style="">
+
+
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="logo">JAZZ<span>SHIP</span></div>
+    <div class="nav-links">
+      <a href="#product">商品</a>
+      <a href="#sizing">尺寸</a>
+      <a href="#about">關於我們</a>
+      <a href="#order" class="nav-cta">預購付款</a>
+    </div>
+  </div>
+</nav>
+
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-text fade-in">
+      <div class="hero-badge">
+        <i class="fas fa-circle"></i>
+        限量預購開放中
+      </div>
+      <h1>JAZZ SHIP<br><span class="gold">T-SHIRT</span> 2026</h1>
+      <p class="hero-sub">乘載著音樂啟航。以幾何拼貼描繪揚帆的瞬間，將爵士的自由精神穿上身。現在可透過綠界科技 ECPay 使用 Apple Pay 與信用卡安心完成預購付款。</p>
+
+      <div class="hero-meta">
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-tag"></i></div>
+          <div>
+            <div class="meta-label">預購單價</div>
+            <div class="meta-value">NT$ 650</div>
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-icon"><i class="fas fa-calendar-day"></i></div>
+          <div>
+            <div class="meta-label">預購截止</div>
+            <div class="meta-value">2026 / 07 / 15</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-buttons">
+        <a href="https://page.cashier.ecpay.com.tw/forms/dyV7" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <i class="fas fa-credit-card"></i> 前往綠界預購付款
+        </a>
+        <a href="#product" class="btn btn-ghost">
+          查看商品 <i class="fas fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+
+    <div class="hero-image fade-in">
+      <div class="hero-image-wrap">
+        <div class="hero-tag">SINCE 2023</div>
+        <img src="https://www.genspark.ai/api/files/s/4Lxb6lGi" alt="JAZZ SHIP T-Shirt 灰色版" data-height-listener-added="true">
+      </div>
+    </div>
+  </div>
+</header>
+
+
+<section id="product" class="product">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="section-tag">— Product —</span>
+      <h2 class="section-title">JAZZ SHIP LIMITED TEE</h2>
+      <p class="section-desc">每一件 T 恤都是一次航行的邀請。以爵士藍與航海金為主色，點綴幾何切面的帆船意象。</p>
+    </div>
+
+    <div class="product-grid">
+      <div class="gallery fade-in">
+        <div class="gallery-main">
+          <img id="mainImg" src="https://www.genspark.ai/api/files/s/4Lxb6lGi" alt="JAZZ SHIP T-Shirt" data-height-listener-added="true">
+        </div>
+        <div class="gallery-thumbs">
+          <div class="thumb active" data-img="https://www.genspark.ai/api/files/s/4Lxb6lGi">
+            <img src="https://www.genspark.ai/api/files/s/4Lxb6lGi" alt="T-Shirt" data-height-listener-added="true">
+          </div>
+          <div class="thumb" data-img="https://www.genspark.ai/api/files/s/UGibIuIq">
+            <img src="https://www.genspark.ai/api/files/s/UGibIuIq" alt="Design" data-height-listener-added="true">
+          </div>
+        </div>
+      </div>
+
+      <div class="product-info fade-in">
+        <div class="subtitle">— Make Friends Through Music —</div>
+        <h2>JAZZ SHIP TEE</h2>
+
+        <div class="price-row">
+          <div class="price"><span class="currency">NT$</span>650</div>
+          <span class="price-note">／件・線上預購付款價</span>
+        </div>
+
+        <ul class="features">
+          <li><i class="fas fa-check-circle"></i><span><strong>限量設計：</strong>2026 主視覺幾何拼貼，獨家販售</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>四種尺寸：</strong>S / M / L / XL 適合男女</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>舒適親膚：</strong>純棉混紡，柔軟透氣不變形</span></li>
+          <li><i class="fas fa-check-circle"></i><span><strong>環保印刷：</strong>水性墨料，色彩飽和不掉色</span></li>
+        </ul>
+
+        
+        <div id="order" class="order-form">
+          <div class="form-title"><i class="fas fa-shield-halved"></i> 立即前往預購付款</div>
+          <p class="checkout-lead">本頁已更新為線上預購付款版本，您可直接前往綠界科技 ECPay 完成交易。付款頁支援 Apple Pay 與信用卡刷卡，流程簡潔明確，讓下單更快速安心。</p>
+
+          <div class="total-row">
+            <span class="total-label">預購價格</span>
+            <div class="total-amount"><span class="currency">NT$</span>650</div>
+          </div>
+
+          <div class="payment-badges">
+            <div class="payment-badge"><i class="fab fa-apple-pay"></i><span>Apple Pay</span></div>
+            <div class="payment-badge"><i class="far fa-credit-card"></i><span>信用卡刷卡</span></div>
+            <div class="payment-badge"><i class="fas fa-lock"></i><span>綠界安全金流</span></div>
+          </div>
+
+          <div class="secure-box">
+            <label class="field-label">安心付款說明</label>
+            <div class="secure-grid">
+              <div class="secure-item"><i class="fas fa-shield-halved"></i><span><strong>安全金流</strong><br>由綠界科技 ECPay 提供正式付款頁面與交易流程。</span></div>
+              <div class="secure-item"><i class="far fa-credit-card"></i><span><strong>信用卡付款</strong><br>可使用信用卡完成線上刷卡，付款流程快速順暢。</span></div>
+              <div class="secure-item"><i class="fab fa-apple-pay"></i><span><strong>Apple Pay</strong><br>支援 Apple Pay 付款，於相容裝置上可更快速完成結帳。</span></div>
+              <div class="secure-item"><i class="fas fa-user-shield"></i><span><strong>3D Secure 驗證</strong><br>搭配發卡銀行驗證機制，提升付款安全與身分確認。</span></div>
+              <div class="secure-item"><i class="fas fa-file-shield"></i><span><strong>交易保護</strong><br>透過安全交易頁面處理付款資料，降低消費者操作負擔。</span></div>
+              <div class="secure-item"><i class="fas fa-circle-check"></i><span><strong>安心下單</strong><br>先參考下方尺寸對照表，再前往付款頁完成預購。</span></div>
+            </div>
+          </div>
+
+          <a href="https://page.cashier.ecpay.com.tw/forms/dyV7" class="checkout-cta" target="_blank" rel="noopener noreferrer">
+            <i class="fas fa-arrow-up-right-from-square"></i> 前往綠界預購付款
+          </a>
+          <p class="checkout-subnote">點擊後將開啟綠界科技 ECPay 預購付款頁面，請依頁面指示完成付款流程。</p>
+          <p class="trust-note">商品圖片、尺寸對照與品牌介紹皆保留於本頁，方便您確認後再安心下單。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="sizing">
+  <div class="container">
+    <div class="section-head fade-in">
+      <span class="section-tag">— Size Guide —</span>
+      <h2 class="section-title">尺寸對照表</h2>
+      <p class="section-desc">建議依平常穿著的尺寸挑選，若想穿寬鬆可選大一號。</p>
+    </div>
+
+    <div class="size-chart-wrap fade-in">
+      <table>
+        <thead>
+          <tr>
+            <th>尺寸</th>
+            <th>胸圍 (cm)</th>
+            <th>衣長 (cm)</th>
+            <th>肩寬 (cm)</th>
+            <th>建議身高</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>S</td><td>96</td><td>67</td><td>44</td><td>155–165 cm</td></tr>
+          <tr><td>M</td><td>102</td><td>70</td><td>47</td><td>165–172 cm</td></tr>
+          <tr><td>L</td><td>108</td><td>73</td><td>50</td><td>172–178 cm</td></tr>
+          <tr><td>XL</td><td>114</td><td>76</td><td>53</td><td>178–185 cm</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="size-note fade-in"><i class="fas fa-circle-info" style="color:var(--gold)"></i> 以上尺寸為平量數據，誤差約 ±2 cm 屬正常範圍</p>
+  </div>
+</section>
+
+
+<section id="about" class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual fade-in">
+        <div class="since">— SINCE —</div>
+        <div class="big-year">2023</div>
+        <div class="tagline">"Make Friends Through Music"<br>音樂啟航，友誼同行</div>
+      </div>
+      <div class="about-content fade-in">
+        <span class="section-tag">— About Us —</span>
+        <h2>關於 JAZZ SHIP</h2>
+        <p>JAZZ SHIP 是一個於 2023 年成立的爵士音樂團體，由一群熱愛即興、相信音樂能跨越語言的夥伴所組成。我們相信，每一場演出就像一艘啟航的船，載著旋律、節奏與聽眾的心，前往未曾抵達的港灣。</p>
+        <p>這次的限量 T 恤，由團員共同發想設計，以幾何切面重構帆船的姿態，藍與金的交織象徵深海與燈塔——願這件衣服，成為你日常裡的一段 Solo。</p>
+        <div class="stats">
+          <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Active</div></div>
+          <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Live Shows</div></div>
+          <div class="stat"><div class="stat-num">1</div><div class="stat-label">Limited Tee</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">JAZZ<span style="color:var(--gold)">SHIP</span></div>
+      <p>一艘乘載音樂與友誼的爵士船。<br>Since 2023 · Make Friends Through Music.</p>
+    </div>
+    <div>
+      <h4>快速連結</h4>
+      <ul>
+        <li><a href="#product">商品介紹</a></li>
+        <li><a href="#sizing">尺寸對照</a></li>
+        <li><a href="#about">關於我們</a></li>
+        <li><a href="#order">預購付款</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>追蹤我們</h4>
+      <div class="socials">
+        <a href="https://www.instagram.com/taichung_jazzship_orchestra?igsh=MWNrdmM1eGplYTM4Zw%3D%3D&amp;utm_source=qr" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.facebook.com/jazzshiporchestra" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+      </div>
+      <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:18px">有任何問題歡迎私訊我們！</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    © 2026 JAZZ SHIP. All rights reserved. · 預購截止日 2026/07/15
+  </div>
+</footer>
+
+
+
+
+
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v833ccba57c9e4d2798f2e76cebdd09a11778172276447" integrity="sha512-57MDmcccJXYtNnH+ZiBwzC4jb2rvgVCEokYN+L/nLlmO8rfYT/gIpW2A569iJ/3b+0UEasghjuZH/ma3wIs/EQ==" data-cf-beacon='{"version":"2024.11.0","token":"4edd5f8ec12a48cfa682ab8261b80a79","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body></html>
