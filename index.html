@@ -19,6 +19,7 @@
       --line: #e6ebf2;
       --text: #1a2438;
       --text-soft: #5b6478;
+      --red-alert: #d32f2f;
       --radius: 16px;
       --shadow-sm: 0 2px 10px rgba(31,58,95,.06);
       --shadow-md: 0 8px 30px rgba(31,58,95,.10);
@@ -48,7 +49,7 @@
       text-decoration: none;
     }
 
-    /* ==== NAVBAR ==== */
+    /* Navigation */
     .nav {
       position: fixed;
       top: 0;
@@ -92,13 +93,14 @@
       color: var(--navy);
     }
     .nav-cta {
-      background: var(--navy);
+      background: var(--red-alert);
       color: #fff !important;
       padding: 9px 20px;
       border-radius: 999px;
       font-weight: 600;
       font-size: .88rem;
       transition: all .25s;
+      animation: pulseAlert 2s infinite;
     }
     .nav-cta:hover {
       background: var(--gold);
@@ -110,7 +112,7 @@
       }
     }
 
-    /* ==== HERO ==== */
+    /* Hero Section */
     .hero {
       padding: 140px 24px 80px;
       background:
@@ -132,18 +134,23 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      background: rgba(201,161,74,.12);
-      color: var(--gold);
+      background: rgba(211, 47, 47, 0.1);
+      color: var(--red-alert);
       padding: 7px 16px;
       border-radius: 999px;
       font-size: .82rem;
-      font-weight: 600;
+      font-weight: 700;
       letter-spacing: 1px;
       margin-bottom: 24px;
-      border: 1px solid rgba(201,161,74,.25);
+      border: 1px solid rgba(211, 47, 47, 0.25);
     }
     .hero-badge i {
       font-size: .7rem;
+      animation: blink 1s infinite alternate;
+    }
+    @keyframes blink {
+      from { opacity: 0.3; }
+      to { opacity: 1; }
     }
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
@@ -159,9 +166,58 @@
     .hero-sub {
       font-size: 1.05rem;
       color: var(--text-soft);
-      margin-bottom: 36px;
+      margin-bottom: 28px;
       max-width: 480px;
     }
+
+    /* Countdown Widget */
+    .countdown-widget {
+      background: var(--navy-deep);
+      border-radius: 12px;
+      padding: 16px;
+      color: #fff;
+      margin-bottom: 32px;
+      max-width: 480px;
+      box-shadow: var(--shadow-md);
+      border: 1px solid rgba(201,161,74,.3);
+    }
+    .countdown-title {
+      font-size: .82rem;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--gold-soft);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
+    .countdown-timer {
+      display: flex;
+      gap: 12px;
+    }
+    .timer-block {
+      background: rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      min-width: 65px;
+      padding: 10px 5px;
+      text-align: center;
+      border-bottom: 2px solid var(--gold);
+    }
+    .timer-num {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.8rem;
+      color: #fff;
+      line-height: 1;
+      letter-spacing: 1px;
+    }
+    .timer-label {
+      font-size: .65rem;
+      color: rgba(255, 255, 255, 0.5);
+      margin-top: 4px;
+      text-transform: uppercase;
+    }
+
     .hero-meta {
       display: flex;
       gap: 32px;
@@ -231,6 +287,7 @@
       background: var(--bg-soft);
     }
 
+    /* Hero Image */
     .hero-image {
       position: relative;
     }
@@ -256,12 +313,14 @@
       border-radius: 14px;
       position: relative;
       z-index: 1;
+      width: 100%;
+      height: auto;
     }
     .hero-tag {
       position: absolute;
       top: 20px;
       right: 20px;
-      background: var(--navy);
+      background: var(--red-alert);
       color: #fff;
       padding: 8px 16px;
       border-radius: 999px;
@@ -270,6 +329,12 @@
       letter-spacing: 1px;
       z-index: 2;
       box-shadow: var(--shadow-md);
+      animation: pulseAlert 2.5s infinite;
+    }
+    @keyframes pulseAlert {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(211,47,47,0.5); }
+      100% { transform: scale(1); }
     }
     @media(max-width: 900px) {
       .hero-inner {
@@ -281,7 +346,7 @@
       }
     }
 
-    /* ==== SECTION COMMON ==== */
+    /* Main Sections */
     section {
       padding: 90px 24px;
     }
@@ -315,7 +380,7 @@
       margin: 0 auto;
     }
 
-    /* ==== PRODUCT GALLERY ==== */
+    /* Product Section */
     .product {
       background: var(--bg-soft);
     }
@@ -337,11 +402,18 @@
     }
     .gallery-main img {
       max-height: 100%;
-      width: auto;
-      transition: transform .4s;
+      max-width: 100%;
+      object-fit: contain;
+      transition: transform .4s ease;
+    }
+    .gallery-main img.shift-up {
+      transform: translateY(-20px); /* 稍微往上移動 20px */
     }
     .gallery-main:hover img {
       transform: scale(1.03);
+    }
+    .gallery-main:hover img.shift-up {
+      transform: translateY(-20px) scale(1.03); /* 懸停時保持微上移與微縮放 */
     }
     .gallery-thumbs {
       display: grid;
@@ -435,25 +507,107 @@
       }
     }
 
-    /* ==== CHECKOUT PANEL ==== */
+    /* Order Form & Card */
     .order-form {
       background: #fff;
       border-radius: var(--radius);
       padding: 32px;
       box-shadow: var(--shadow-md);
-      border: 1px solid var(--line);
+      border: 1.5px solid var(--gold);
+      position: relative;
     }
+    .scarcity-indicator {
+      background: rgba(211, 47, 47, 0.05);
+      border: 1px solid rgba(211, 47, 47, 0.15);
+      border-radius: 12px;
+      padding: 16px;
+      margin-bottom: 20px;
+    }
+    .scarcity-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .scarcity-text {
+      color: var(--red-alert);
+      font-size: .9rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .scarcity-text i {
+      animation: pulseAlert 1.2s infinite;
+    }
+    .scarcity-count {
+      font-size: .85rem;
+      color: var(--text-soft);
+    }
+    .scarcity-count span {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.15rem;
+      color: var(--navy);
+      font-weight: bold;
+    }
+    .progress-bar {
+      height: 10px;
+      background: #e6ebf2;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, var(--gold) 0%, var(--red-alert) 100%);
+      width: 82%; /* 41/50 = 82% */
+      border-radius: 999px;
+      animation: fillAnimation 1.5s ease-out forwards;
+    }
+    @keyframes fillAnimation {
+      from { width: 0%; }
+      to { width: 82%; }
+    }
+
+    .pickup-info-box {
+      background: linear-gradient(135deg, rgba(201,161,74,.06) 0%, rgba(201,161,74,.12) 100%);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 18px;
+      margin: 20px 0;
+    }
+    .pickup-title {
+      font-weight: 700;
+      color: var(--navy-deep);
+      font-size: .95rem;
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .pickup-title i {
+      color: var(--gold);
+    }
+    .pickup-desc {
+      color: var(--text-soft);
+      font-size: .88rem;
+      line-height: 1.5;
+    }
+    .pickup-highlight {
+      font-weight: 700;
+      color: var(--red-alert);
+    }
+
     .form-title {
       font-weight: 700;
-      font-size: 1.1rem;
+      font-size: 1.15rem;
       color: var(--navy);
-      margin-bottom: 16px;
+      margin-bottom: 12px;
       display: flex;
       align-items: center;
       gap: 10px;
     }
     .form-title i {
-      color: var(--gold);
+      color: var(--red-alert);
     }
     .checkout-lead {
       color: var(--text-soft);
@@ -549,11 +703,11 @@
     .checkout-cta {
       width: 100%;
       padding: 16px;
-      background: var(--navy);
+      background: var(--red-alert);
       color: #fff;
       border: none;
       border-radius: 12px;
-      font-size: 1rem;
+      font-size: 1.05rem;
       font-weight: 700;
       letter-spacing: 1px;
       cursor: pointer;
@@ -563,7 +717,7 @@
       justify-content: center;
       gap: 10px;
       font-family: inherit;
-      box-shadow: 0 8px 24px rgba(31,58,95,.25);
+      box-shadow: 0 8px 24px rgba(211,47,47,.25);
     }
     .checkout-cta:hover {
       background: var(--gold);
@@ -586,7 +740,7 @@
       }
     }
 
-    /* ==== SIZE CHART ==== */
+    /* Size Chart Table */
     .size-chart-wrap {
       background: #fff;
       border-radius: var(--radius);
@@ -634,7 +788,7 @@
       margin-top: 20px;
     }
 
-    /* ==== ABOUT ==== */
+    /* About Section */
     .about {
       background: var(--bg-soft);
     }
@@ -747,7 +901,7 @@
       }
     }
 
-    /* ==== FOOTER ==== */
+    /* Footer */
     footer {
       background: var(--navy-deep);
       color: #fff;
@@ -828,7 +982,7 @@
       }
     }
 
-    /* ==== ANIMATIONS ==== */
+    /* Animations */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
@@ -849,7 +1003,7 @@
         <a href="#product">商品</a>
         <a href="#sizing">尺寸</a>
         <a href="#about">關於我們</a>
-        <a href="#order" class="nav-cta">預購付款</a>
+        <a href="#order" class="nav-cta">搶先預購 ⏰</a>
       </div>
     </div>
   </nav>
@@ -858,11 +1012,36 @@
     <div class="hero-inner">
       <div class="hero-text fade-in">
         <div class="hero-badge">
-          <i class="fas fa-circle"></i>
-          限量預購開放中
+          <i class="fas fa-fire"></i>
+          首批預購 50 件・售完為止
         </div>
         <h1>JAZZ SHIP<br><span class="gold">T-SHIRT</span> 2026</h1>
-        <p class="hero-sub">乘載著音樂啟航。以幾何拼貼描繪揚帆的瞬間，將爵士的自由精神穿上身。現在可透過綠界科技 ECPay 使用 Apple Pay 與信用卡安心完成預購付款。</p>
+        <p class="hero-sub">乘載著音樂啟航。以幾何拼貼描繪揚帆的瞬間，將爵士的自由精神穿上身。限量稀有製作，請把握首批倒數機會，使用綠界金流安心付款。</p>
+
+        <!-- Dynamic Countdown Widget -->
+        <div class="countdown-widget">
+          <div class="countdown-title">
+            <i class="far fa-clock"></i> 距離首批預購截止還有
+          </div>
+          <div class="countdown-timer" id="countdown-hero">
+            <div class="timer-block">
+              <div class="timer-num" id="days">--</div>
+              <div class="timer-label">天 Days</div>
+            </div>
+            <div class="timer-block">
+              <div class="timer-num" id="hours">--</div>
+              <div class="timer-label">時 Hrs</div>
+            </div>
+            <div class="timer-block">
+              <div class="timer-num" id="minutes">--</div>
+              <div class="timer-label">分 Mins</div>
+            </div>
+            <div class="timer-block">
+              <div class="timer-num" id="seconds">--</div>
+              <div class="timer-label">秒 Secs</div>
+            </div>
+          </div>
+        </div>
 
         <div class="hero-meta">
           <div class="meta-item">
@@ -876,25 +1055,26 @@
             <div class="meta-icon"><i class="fas fa-calendar-day"></i></div>
             <div>
               <div class="meta-label">預購截止</div>
-              <div class="meta-value">2026 / 07 / 15</div>
+              <div class="meta-value" style="color:var(--red-alert); font-weight:700;">2026 / 06 / 15</div>
             </div>
           </div>
         </div>
 
         <div class="hero-buttons">
           <a href="https://page.cashier.ecpay.com.tw/forms/dyV7" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
-            <i class="fas fa-credit-card"></i> 前往綠界預購付款
+            <i class="fas fa-credit-card"></i> 立即前往綠界付款
           </a>
           <a href="#product" class="btn btn-ghost">
-            查看商品 <i class="fas fa-arrow-right"></i>
+            查看商品規格 <i class="fas fa-arrow-right"></i>
           </a>
         </div>
       </div>
 
       <div class="hero-image fade-in">
         <div class="hero-image-wrap">
-          <div class="hero-tag">SINCE 2023</div>
-          <img src="https://i.imgur.com/fAJKI35.jpeg" alt="JAZZ SHIP T-Shirt 灰色版">
+          <div class="hero-tag">LIMITED 50</div>
+          <!-- Added fallback placeholder if image fails to load -->
+          <img src="https://i.imgur.com/fAJKI35.jpeg" alt="JAZZ SHIP T-Shirt 灰色版" onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE'">
         </div>
       </div>
     </div>
@@ -911,14 +1091,14 @@
       <div class="product-grid">
         <div class="gallery fade-in">
           <div class="gallery-main">
-            <img id="mainImg" src="https://i.imgur.com/fAJKI35.jpeg" alt="JAZZ SHIP T-Shirt">
+            <img id="mainImg" src="https://i.imgur.com/fAJKI35.jpeg" alt="JAZZ SHIP T-Shirt" onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE'">
           </div>
           <div class="gallery-thumbs">
-            <div class="thumb active" data-img="https://i.imgur.com/fAJKI35.jpeg">
-              <img src="https://i.imgur.com/fAJKI35.jpeg" alt="T-Shirt">
+            <div class="thumb active" data-img="https://i.imgur.com/fAJKI35.jpeg" data-type="tee">
+              <img src="https://i.imgur.com/fAJKI35.jpeg" alt="T-Shirt" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE'">
             </div>
-            <div class="thumb" data-img="https://i.imgur.com/yJy5O1z.png">
-              <img src="https://i.imgur.com/yJy5O1z.png" alt="Design">
+            <div class="thumb" data-img="https://i.imgur.com/yJy5O1z.png" data-type="design">
+              <img src="https://i.imgur.com/yJy5O1z.png" alt="Design" onerror="this.onerror=null; this.src='https://placehold.co/100x100/c9a14a/ffffff?text=DESIGN'">
             </div>
           </div>
         </div>
@@ -933,15 +1113,35 @@
           </div>
 
           <ul class="features">
+            <li><i class="fas fa-fire" style="color:var(--red-alert)"></i><span><strong>首批限量：</strong>極珍貴 50 件，售完即不再版</span></li>
             <li><i class="fas fa-check-circle"></i><span><strong>限量設計：</strong>2026 主視覺幾何拼貼，獨家販售</span></li>
             <li><i class="fas fa-check-circle"></i><span><strong>四種尺寸：</strong>S / M / L / XL 適合男女</span></li>
             <li><i class="fas fa-check-circle"></i><span><strong>舒適親膚：</strong>純棉混紡，柔軟透氣不變形</span></li>
-            <li><i class="fas fa-check-circle"></i><span><strong>環保印刷：</strong>水性墨料，色彩飽和不掉色</span></li>
           </ul>
 
           <div id="order" class="order-form">
-            <div class="form-title"><i class="fas fa-shield-halved"></i> 立即前往預購付款</div>
-            <p class="checkout-lead">本頁已更新為線上預購付款版本，您可直接前往綠界科技 ECPay 完成交易。付款頁支援 Apple Pay 與信用卡刷卡，流程簡潔明確，讓下單更快速安心。</p>
+            <!-- Scarcity Stock Indicator -->
+            <div class="scarcity-indicator" style="background: rgba(31, 58, 95, 0.05); border-color: rgba(31, 58, 95, 0.15);">
+              <div class="scarcity-header" style="justify-content: center; margin-bottom: 0;">
+                <span class="scarcity-text" style="color: var(--navy);">
+                  <i class="fas fa-fire" style="color: var(--red-alert);"></i> 首批限量預售 50 件・售完為止
+                </span>
+              </div>
+            </div>
+
+            <!-- Pre-order Pickup Notes Card -->
+            <div class="pickup-info-box">
+              <div class="pickup-title">
+                <i class="fas fa-map-marker-alt"></i> 📍 領取須知（自取服務）
+              </div>
+              <div class="pickup-desc">
+                本商品為限量預購製作。預計 <span class="pickup-highlight">2026 年 7 月 1 日</span> 起，您將可以親自前往 <strong style="color:var(--navy-deep)">『爵序大樂團』</strong> 領取您的限量 T-shirt！
+                <br><span style="font-size: 0.8rem; opacity: 0.8;">※ 詳細領取資訊將透過您在綠界金流填寫的聯絡電話與 Email 通知您。</span>
+              </div>
+            </div>
+
+            <div class="form-title"><i class="fas fa-shield-halved"></i> 前往綠界科技預購付款</div>
+            <p class="checkout-lead">點選下方按鈕，直接前往綠界科技 ECPay 完成安全結帳。付款頁面支援 Apple Pay 與信用卡刷卡，讓流程更簡潔快速。</p>
 
             <div class="total-row">
               <span class="total-label">預購價格</span>
@@ -961,16 +1161,14 @@
                 <div class="secure-item"><i class="far fa-credit-card"></i><span><strong>信用卡付款</strong><br>可使用信用卡完成線上刷卡，付款流程快速順暢。</span></div>
                 <div class="secure-item"><i class="fab fa-apple-pay"></i><span><strong>Apple Pay</strong><br>支援 Apple Pay 付款，於相容裝置上可更快速完成結帳。</span></div>
                 <div class="secure-item"><i class="fas fa-user-shield"></i><span><strong>3D Secure 驗證</strong><br>搭配發卡銀行驗證機制，提升付款安全與身分確認。</span></div>
-                <div class="secure-item"><i class="fas fa-file-shield"></i><span><strong>交易保護</strong><br>透過安全交易頁面處理付款資料，降低消費者操作負擔。</span></div>
-                <div class="secure-item"><i class="fas fa-circle-check"></i><span><strong>安心下單</strong><br>先參考下方尺寸對照表，再前往付款頁完成預購。</span></div>
               </div>
             </div>
 
             <a href="https://page.cashier.ecpay.com.tw/forms/dyV7" class="checkout-cta" target="_blank" rel="noopener noreferrer">
-              <i class="fas fa-arrow-up-right-from-square"></i> 前往綠界預購付款
+              <i class="fas fa-arrow-up-right-from-square"></i> 立即搶購！前往綠界付款
             </a>
             <p class="checkout-subnote">點擊後將開啟綠界科技 ECPay 預購付款頁面，請依頁面指示完成付款流程。</p>
-            <p class="trust-note">商品圖片、尺寸對照與品牌介紹皆保留於本頁，方便您確認後再安心下單。</p>
+            <p class="trust-note">商品圖片、尺寸對照與 brand 介紹皆保留於本頁，方便您確認後再安心下單。</p>
           </div>
         </div>
       </div>
@@ -1024,7 +1222,7 @@
           <div class="stats">
             <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Active</div></div>
             <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Live Shows</div></div>
-            <div class="stat"><div class="stat-num">1</div><div class="stat-label">Limited Tee</div></div>
+            <div class="stat"><div class="stat-num">50</div><div class="stat-label">Limited Quantities</div></div>
           </div>
         </div>
       </div>
@@ -1043,7 +1241,7 @@
           <li><a href="#product">商品介紹</a></li>
           <li><a href="#sizing">尺寸對照</a></li>
           <li><a href="#about">關於我們</a></li>
-          <li><a href="#order">預購付款</a></li>
+          <li><a href="#order">搶先預購</a></li>
         </ul>
       </div>
       <div>
@@ -1056,13 +1254,13 @@
       </div>
     </div>
     <div class="footer-bottom">
-      © 2026 JAZZ SHIP. All rights reserved. · 預購截止日 2026/07/15
+      © 2026 JAZZ SHIP. All rights reserved. · 限量預購截止日 2026/06/15
     </div>
   </footer>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. 修正滾動漸顯動畫效果 (Intersection Observer)
+      // 1. 滾動漸顯動畫效果 (Intersection Observer)
       const fadeElements = document.querySelectorAll('.fade-in');
       const observerOptions = {
         root: null,
@@ -1074,30 +1272,74 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); // 播放過一次後就停止監聽
+            observer.unobserve(entry.target); 
           }
         });
       }, observerOptions);
 
       fadeElements.forEach(el => animationObserver.observe(el));
 
-      // 2. 商品展示圖切換功能
+      // 2. 商品展示圖切換功能（新增特定種類微調位置邏輯）
       const thumbs = document.querySelectorAll('.thumb');
       const mainImg = document.getElementById('mainImg');
 
       thumbs.forEach(thumb => {
         thumb.addEventListener('click', () => {
-          // 移除所有縮圖的 active 狀態
           thumbs.forEach(t => t.classList.remove('active'));
-          // 啟用當前縮圖的 active 狀態
           thumb.classList.add('active');
-          // 切換大圖來源
           const newImgUrl = thumb.getAttribute('data-img');
+          const imgType = thumb.getAttribute('data-type');
+          
           if (newImgUrl) {
             mainImg.src = newImgUrl;
+            
+            // 如果切換到設計圖，加入向上位移 class
+            if (imgType === 'design') {
+              mainImg.classList.add('shift-up');
+            } else {
+              mainImg.classList.remove('shift-up');
+            }
           }
         });
       });
+
+      // 3. 預購截止倒數計時器功能 (2026 年 6 月 15 日 23:59:59)
+      const targetDate = new Date("June 15, 2026 23:59:59").getTime();
+
+      const updateCountdown = () => {
+        const now = new Date().getTime();
+        const difference = targetDate - now;
+
+        if (difference < 0) {
+          // 時間到，顯示已結束
+          const countdownContainer = document.getElementById('countdown-hero');
+          if (countdownContainer) {
+            countdownContainer.innerHTML = `
+              <div style="font-size: 1.2rem; color: var(--red-alert); font-weight: bold; letter-spacing: 1.5px; width:100%; text-align:center; padding: 10px 0;">
+                ⚠️ 預購活動已截止 Pre-Order Closed
+              </div>
+            `;
+          }
+          clearInterval(countdownInterval);
+          return;
+        }
+
+        // 時間計算邏輯
+        const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+        // 更新 UI
+        document.getElementById('days').innerText = days.toString().padStart(2, '0');
+        document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
+        document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
+        document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
+      };
+
+      // 啟動倒數計時，每秒刷新
+      updateCountdown();
+      const countdownInterval = setInterval(updateCountdown, 1000);
     });
   </script>
 </body>
