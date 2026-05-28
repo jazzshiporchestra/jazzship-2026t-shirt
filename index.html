@@ -1,10 +1,10 @@
-<!DOCTYPE html>
+Copy<!DOCTYPE html>
 <html lang="zh-TW" data-theme="light">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet" data-editor-preserved="true">
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet" data-editor-preserved="true">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500;600;700;800&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
   <title>JAZZ SHIP 預購｜Make Friends Through Music</title>
 
   <style>
@@ -25,14 +25,17 @@
       --shadow-md: 0 8px 30px rgba(31,58,95,.10);
       --shadow-lg: 0 20px 60px rgba(31,58,95,.15);
     }
+
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
     }
+
     html {
       scroll-behavior: smooth;
     }
+
     body {
       font-family: 'Inter', 'Noto Sans TC', sans-serif;
       color: var(--text);
@@ -40,10 +43,12 @@
       line-height: 1.65;
       -webkit-font-smoothing: antialiased;
     }
+
     img {
       max-width: 100%;
       display: block;
     }
+
     a {
       color: inherit;
       text-decoration: none;
@@ -61,6 +66,7 @@
       -webkit-backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--line);
     }
+
     .nav-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -69,29 +75,35 @@
       align-items: center;
       justify-content: space-between;
     }
+
     .logo {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.5rem;
       letter-spacing: 3px;
       color: var(--navy);
     }
+
     .logo span {
       color: var(--gold);
     }
+
     .nav-links {
       display: flex;
       gap: 32px;
       align-items: center;
     }
+
     .nav-links a {
       font-size: .92rem;
       font-weight: 500;
       color: var(--text-soft);
       transition: color .2s;
     }
+
     .nav-links a:hover {
       color: var(--navy);
     }
+
     .nav-cta {
       background: var(--red-alert);
       color: #fff !important;
@@ -102,10 +114,12 @@
       transition: all .25s;
       animation: pulseAlert 2s infinite;
     }
+
     .nav-cta:hover {
       background: var(--gold);
       transform: translateY(-1px);
     }
+
     @media(max-width: 768px) {
       .nav-links a:not(.nav-cta) {
         display: none;
@@ -122,6 +136,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -130,6 +145,7 @@
       gap: 60px;
       align-items: center;
     }
+
     .hero-badge {
       display: inline-flex;
       align-items: center;
@@ -144,14 +160,17 @@
       margin-bottom: 24px;
       border: 1px solid rgba(211, 47, 47, 0.25);
     }
+
     .hero-badge i {
       font-size: .7rem;
       animation: blink 1s infinite alternate;
     }
+
     @keyframes blink {
       from { opacity: 0.3; }
       to { opacity: 1; }
     }
+
     .hero h1 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2.8rem, 6vw, 4.8rem);
@@ -160,9 +179,11 @@
       color: var(--navy);
       margin-bottom: 20px;
     }
+
     .hero h1 .gold {
       color: var(--gold);
     }
+
     .hero-sub {
       font-size: 1.05rem;
       color: var(--text-soft);
@@ -181,6 +202,7 @@
       box-shadow: var(--shadow-md);
       border: 1px solid rgba(201,161,74,.3);
     }
+
     .countdown-title {
       font-size: .82rem;
       text-transform: uppercase;
@@ -192,10 +214,13 @@
       gap: 8px;
       font-weight: 700;
     }
+
     .countdown-timer {
       display: flex;
       gap: 12px;
+      flex-wrap: wrap;
     }
+
     .timer-block {
       background: rgba(255, 255, 255, 0.08);
       border-radius: 8px;
@@ -204,6 +229,7 @@
       text-align: center;
       border-bottom: 2px solid var(--gold);
     }
+
     .timer-num {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.8rem;
@@ -211,6 +237,7 @@
       line-height: 1;
       letter-spacing: 1px;
     }
+
     .timer-label {
       font-size: .65rem;
       color: rgba(255, 255, 255, 0.5);
@@ -224,11 +251,13 @@
       margin-bottom: 36px;
       flex-wrap: wrap;
     }
+
     .meta-item {
       display: flex;
       align-items: center;
       gap: 10px;
     }
+
     .meta-icon {
       width: 38px;
       height: 38px;
@@ -238,22 +267,26 @@
       place-items: center;
       color: var(--navy);
     }
+
     .meta-label {
       font-size: .78rem;
       color: var(--text-soft);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
+
     .meta-value {
       font-size: .95rem;
       font-weight: 600;
       color: var(--navy);
     }
+
     .hero-buttons {
       display: flex;
       gap: 14px;
       flex-wrap: wrap;
     }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -267,21 +300,25 @@
       border: none;
       font-family: inherit;
     }
+
     .btn-primary {
       background: var(--navy);
       color: #fff;
       box-shadow: 0 8px 24px rgba(31,58,95,.25);
     }
+
     .btn-primary:hover {
       background: var(--gold);
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(201,161,74,.35);
     }
+
     .btn-ghost {
       background: transparent;
       color: var(--navy);
       border: 1.5px solid var(--line);
     }
+
     .btn-ghost:hover {
       border-color: var(--navy);
       background: var(--bg-soft);
@@ -291,6 +328,7 @@
     .hero-image {
       position: relative;
     }
+
     .hero-image-wrap {
       background: linear-gradient(135deg,#f4f7fb 0%,#fff 100%);
       border-radius: 24px;
@@ -299,6 +337,7 @@
       position: relative;
       overflow: hidden;
     }
+
     .hero-image-wrap::before {
       content: "";
       position: absolute;
@@ -309,6 +348,7 @@
       background: radial-gradient(circle,rgba(201,161,74,.08) 0%,transparent 50%);
       pointer-events: none;
     }
+
     .hero-image-wrap img {
       border-radius: 14px;
       position: relative;
@@ -316,6 +356,7 @@
       width: 100%;
       height: auto;
     }
+
     .hero-tag {
       position: absolute;
       top: 20px;
@@ -331,16 +372,19 @@
       box-shadow: var(--shadow-md);
       animation: pulseAlert 2.5s infinite;
     }
+
     @keyframes pulseAlert {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); box-shadow: 0 0 15px rgba(211,47,47,0.5); }
       100% { transform: scale(1); }
     }
+
     @media(max-width: 900px) {
       .hero-inner {
         grid-template-columns: 1fr;
         gap: 40px;
       }
+
       .hero {
         padding-top: 110px;
       }
@@ -350,14 +394,17 @@
     section {
       padding: 90px 24px;
     }
+
     .container {
       max-width: 1200px;
       margin: 0 auto;
     }
+
     .section-head {
       text-align: center;
       margin-bottom: 60px;
     }
+
     .section-tag {
       display: inline-block;
       color: var(--gold);
@@ -367,6 +414,7 @@
       font-size: .8rem;
       margin-bottom: 12px;
     }
+
     .section-title {
       font-family: 'Bebas Neue', sans-serif;
       font-size: clamp(2rem, 4vw, 3rem);
@@ -374,6 +422,7 @@
       letter-spacing: 2px;
       margin-bottom: 14px;
     }
+
     .section-desc {
       color: var(--text-soft);
       max-width: 600px;
@@ -384,12 +433,14 @@
     .product {
       background: var(--bg-soft);
     }
+
     .product-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 50px;
       align-items: start;
     }
+
     .gallery-main {
       background: #fff;
       border-radius: var(--radius);
@@ -400,27 +451,33 @@
       place-items: center;
       overflow: hidden;
     }
+
     .gallery-main img {
       max-height: 100%;
       max-width: 100%;
       object-fit: contain;
       transition: transform .4s ease;
     }
+
     .gallery-main img.shift-up {
-      transform: translateY(-20px); /* 稍微往上移動 20px */
+      transform: translateY(-20px);
     }
+
     .gallery-main:hover img {
       transform: scale(1.03);
     }
+
     .gallery-main:hover img.shift-up {
-      transform: translateY(-20px) scale(1.03); /* 懸停時保持微上移與微縮放 */
+      transform: translateY(-20px) scale(1.03);
     }
+
     .gallery-thumbs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 12px;
       margin-top: 14px;
     }
+
     .thumb {
       background: #fff;
       border-radius: 10px;
@@ -433,14 +490,19 @@
       place-items: center;
       overflow: hidden;
     }
+
     .thumb.active {
       border-color: var(--navy);
     }
+
     .thumb:hover {
       border-color: var(--gold);
     }
+
     .thumb img {
       max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
     }
 
     .product-info h2 {
@@ -450,6 +512,7 @@
       color: var(--navy);
       margin-bottom: 8px;
     }
+
     .product-info .subtitle {
       color: var(--gold);
       font-weight: 600;
@@ -458,6 +521,7 @@
       font-size: .85rem;
       margin-bottom: 24px;
     }
+
     .price-row {
       display: flex;
       align-items: baseline;
@@ -467,27 +531,32 @@
       border-top: 1px solid var(--line);
       border-bottom: 1px solid var(--line);
     }
+
     .price {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 3rem;
       color: var(--navy);
       letter-spacing: 2px;
     }
+
     .price .currency {
       font-size: 1.4rem;
       color: var(--gold);
       margin-right: 4px;
     }
+
     .price-note {
       color: var(--text-soft);
       font-size: .9rem;
     }
+
     .features {
       list-style: none;
       margin: 28px 0;
       display: grid;
       gap: 12px;
     }
+
     .features li {
       display: flex;
       align-items: flex-start;
@@ -495,11 +564,13 @@
       color: var(--text);
       font-size: .95rem;
     }
+
     .features i {
       color: var(--gold);
       margin-top: 4px;
       flex-shrink: 0;
     }
+
     @media(max-width: 900px) {
       .product-grid {
         grid-template-columns: 1fr;
@@ -516,6 +587,7 @@
       border: 1.5px solid var(--gold);
       position: relative;
     }
+
     .scarcity-indicator {
       background: rgba(211, 47, 47, 0.05);
       border: 1px solid rgba(211, 47, 47, 0.15);
@@ -523,12 +595,14 @@
       padding: 16px;
       margin-bottom: 20px;
     }
+
     .scarcity-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
       margin-bottom: 8px;
     }
+
     .scarcity-text {
       color: var(--red-alert);
       font-size: .9rem;
@@ -537,32 +611,38 @@
       align-items: center;
       gap: 6px;
     }
+
     .scarcity-text i {
       animation: pulseAlert 1.2s infinite;
     }
+
     .scarcity-count {
       font-size: .85rem;
       color: var(--text-soft);
     }
+
     .scarcity-count span {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 1.15rem;
       color: var(--navy);
       font-weight: bold;
     }
+
     .progress-bar {
       height: 10px;
       background: #e6ebf2;
       border-radius: 999px;
       overflow: hidden;
     }
+
     .progress-fill {
       height: 100%;
       background: linear-gradient(90deg, var(--gold) 0%, var(--red-alert) 100%);
-      width: 82%; /* 41/50 = 82% */
+      width: 82%;
       border-radius: 999px;
       animation: fillAnimation 1.5s ease-out forwards;
     }
+
     @keyframes fillAnimation {
       from { width: 0%; }
       to { width: 82%; }
@@ -575,6 +655,7 @@
       padding: 18px;
       margin: 20px 0;
     }
+
     .pickup-title {
       font-weight: 700;
       color: var(--navy-deep);
@@ -584,14 +665,17 @@
       align-items: center;
       gap: 8px;
     }
+
     .pickup-title i {
       color: var(--gold);
     }
+
     .pickup-desc {
       color: var(--text-soft);
       font-size: .88rem;
       line-height: 1.5;
     }
+
     .pickup-highlight {
       font-weight: 700;
       color: var(--red-alert);
@@ -606,14 +690,17 @@
       align-items: center;
       gap: 10px;
     }
+
     .form-title i {
       color: var(--red-alert);
     }
+
     .checkout-lead {
       color: var(--text-soft);
       font-size: .96rem;
       margin-bottom: 22px;
     }
+
     .total-row {
       background: linear-gradient(135deg,#f7f9fc 0%,#eef3fa 100%);
       padding: 18px 22px;
@@ -623,27 +710,32 @@
       align-items: center;
       margin: 24px 0 18px;
     }
+
     .total-label {
       color: var(--text-soft);
       font-size: .92rem;
     }
+
     .total-amount {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2rem;
       color: var(--navy);
       letter-spacing: 1px;
     }
+
     .total-amount .currency {
       color: var(--gold);
       font-size: 1.1rem;
       margin-right: 4px;
     }
+
     .payment-badges {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-bottom: 20px;
     }
+
     .payment-badge {
       display: inline-flex;
       align-items: center;
@@ -656,10 +748,12 @@
       font-size: .9rem;
       font-weight: 600;
     }
+
     .payment-badge i {
       color: var(--gold);
       font-size: 1rem;
     }
+
     .secure-box {
       background: linear-gradient(180deg,#ffffff 0%,#fbfcfe 100%);
       border: 1px solid var(--line);
@@ -667,6 +761,7 @@
       padding: 18px 18px 8px;
       margin-bottom: 22px;
     }
+
     .field-label {
       display: block;
       font-size: .88rem;
@@ -674,11 +769,13 @@
       color: var(--text);
       margin-bottom: 12px;
     }
+
     .secure-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
       gap: 12px;
     }
+
     .secure-item {
       display: flex;
       align-items: flex-start;
@@ -687,19 +784,23 @@
       border-radius: 12px;
       padding: 14px;
     }
+
     .secure-item i {
       color: var(--gold);
       margin-top: 2px;
       flex-shrink: 0;
     }
+
     .secure-item span {
       color: var(--text-soft);
       font-size: .88rem;
       line-height: 1.6;
     }
+
     .secure-item strong {
       color: var(--navy);
     }
+
     .checkout-cta {
       width: 100%;
       padding: 16px;
@@ -719,11 +820,13 @@
       font-family: inherit;
       box-shadow: 0 8px 24px rgba(211,47,47,.25);
     }
+
     .checkout-cta:hover {
       background: var(--gold);
       transform: translateY(-2px);
       box-shadow: 0 12px 30px rgba(201,161,74,.35);
     }
+
     .checkout-subnote,
     .trust-note {
       text-align: center;
@@ -731,10 +834,12 @@
       font-size: .84rem;
       margin-top: 14px;
     }
+
     @media(max-width: 640px) {
       .payment-badges {
         flex-direction: column;
       }
+
       .secure-grid {
         grid-template-columns: 1fr;
       }
@@ -750,18 +855,22 @@
       max-width: 780px;
       margin: 0 auto;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
     }
+
     th, td {
       padding: 18px 16px;
       text-align: center;
       border-bottom: 1px solid var(--line);
     }
+
     thead {
       background: var(--navy);
     }
+
     thead th {
       color: #fff;
       font-weight: 600;
@@ -769,18 +878,22 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
+
     tbody tr:hover {
       background: var(--bg-soft);
     }
+
     tbody td {
       font-size: .95rem;
       color: var(--text);
     }
+
     tbody tr td:first-child {
       font-weight: 700;
       color: var(--navy);
       font-size: 1.05rem;
     }
+
     .size-note {
       text-align: center;
       color: var(--text-soft);
@@ -792,12 +905,14 @@
     .about {
       background: var(--bg-soft);
     }
+
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1.2fr;
       gap: 60px;
       align-items: center;
     }
+
     .about-visual {
       background: linear-gradient(135deg,var(--navy) 0%,var(--navy-deep) 100%);
       border-radius: var(--radius);
@@ -810,6 +925,7 @@
       flex-direction: column;
       justify-content: center;
     }
+
     .about-visual::before {
       content: "";
       position: absolute;
@@ -819,6 +935,7 @@
       height: 80%;
       background: radial-gradient(circle,rgba(201,161,74,.25) 0%,transparent 70%);
     }
+
     .about-visual::after {
       content: "♪";
       position: absolute;
@@ -829,6 +946,7 @@
       line-height: 1;
       font-family: Georgia,serif;
     }
+
     .about-visual .big-year {
       font-family: 'Bebas Neue',sans-serif;
       font-size: 6rem;
@@ -838,6 +956,7 @@
       position: relative;
       z-index: 1;
     }
+
     .about-visual .since {
       font-family: 'Bebas Neue',sans-serif;
       font-size: 1.3rem;
@@ -846,6 +965,7 @@
       position: relative;
       z-index: 1;
     }
+
     .about-visual .tagline {
       margin-top: 30px;
       font-size: 1.1rem;
@@ -855,6 +975,7 @@
       z-index: 1;
       line-height: 1.5;
     }
+
     .about-content h2 {
       font-family: 'Bebas Neue', sans-serif;
       font-size: 2.6rem;
@@ -862,17 +983,20 @@
       color: var(--navy);
       margin-bottom: 20px;
     }
+
     .about-content p {
       color: var(--text-soft);
       margin-bottom: 18px;
       font-size: 1rem;
     }
+
     .stats {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 20px;
       margin-top: 30px;
     }
+
     .stat {
       text-align: center;
       padding: 20px;
@@ -880,21 +1004,25 @@
       border-radius: 12px;
       box-shadow: var(--shadow-sm);
     }
+
     .stat-num {
       font-family: 'Bebas Neue',sans-serif;
       font-size: 2rem;
       color: var(--gold);
       letter-spacing: 1px;
     }
+
     .stat-label {
       font-size: .82rem;
       color: var(--text-soft);
       margin-top: 4px;
     }
+
     @media(max-width: 900px) {
       .about-grid {
         grid-template-columns: 1fr;
       }
+
       .about-visual {
         aspect-ratio: auto;
         padding: 40px;
@@ -907,6 +1035,7 @@
       color: #fff;
       padding: 60px 24px 30px;
     }
+
     .footer-inner {
       max-width: 1200px;
       margin: 0 auto;
@@ -915,16 +1044,19 @@
       gap: 50px;
       margin-bottom: 40px;
     }
+
     .footer-brand .logo {
       color: #fff;
       font-size: 1.8rem;
     }
+
     .footer-brand p {
       color: rgba(255,255,255,.6);
       margin-top: 14px;
       font-size: .92rem;
       max-width: 340px;
     }
+
     .footer h4 {
       font-size: .85rem;
       text-transform: uppercase;
@@ -932,25 +1064,31 @@
       color: var(--gold);
       margin-bottom: 18px;
     }
+
     .footer ul {
       list-style: none;
     }
+
     .footer ul li {
       margin-bottom: 10px;
     }
+
     .footer a {
       color: rgba(255,255,255,.7);
       font-size: .92rem;
       transition: color .2s;
     }
+
     .footer a:hover {
       color: var(--gold);
     }
+
     .socials {
       display: flex;
       gap: 12px;
       margin-top: 6px;
     }
+
     .social-icon {
       width: 42px;
       height: 42px;
@@ -962,10 +1100,12 @@
       transition: all .25s;
       font-size: 1rem;
     }
+
     .social-icon:hover {
       background: var(--gold);
       transform: translateY(-3px);
     }
+
     .footer-bottom {
       max-width: 1200px;
       margin: 0 auto;
@@ -975,6 +1115,7 @@
       color: rgba(255,255,255,.5);
       font-size: .85rem;
     }
+
     @media(max-width: 768px) {
       .footer-inner {
         grid-template-columns: 1fr;
@@ -988,6 +1129,7 @@
       transform: translateY(30px);
       transition: opacity .8s ease, transform .8s ease;
     }
+
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
@@ -1015,10 +1157,13 @@
           <i class="fas fa-fire"></i>
           首批預購 50 件・售完為止
         </div>
-        <h1>JAZZ SHIP<br><span class="gold">T-SHIRT</span> 2026</h1>
-        <p class="hero-sub">乘載著音樂啟航。以幾何拼貼描繪揚帆的瞬間，將爵士的自由精神穿上身。限量稀有製作，請把握首批倒數機會，使用綠界金流安心付款。</p>
 
-        <!-- Dynamic Countdown Widget -->
+        <h1>JAZZ SHIP<br><span class="gold">T-SHIRT</span> 2026</h1>
+
+        <p class="hero-sub">
+          乘載著音樂啟航。以幾何拼貼描繪揚帆的瞬間，將爵士的自由精神穿上身。限量稀有製作，請把握首批倒數機會，使用綠界金流安心付款。
+        </p>
+
         <div class="countdown-widget">
           <div class="countdown-title">
             <i class="far fa-clock"></i> 距離首批預購截止還有
@@ -1073,8 +1218,11 @@
       <div class="hero-image fade-in">
         <div class="hero-image-wrap">
           <div class="hero-tag">LIMITED 50</div>
-          <!-- Added fallback placeholder if image fails to load -->
-          <img src="https://i.imgur.com/fAJKI35.jpeg" alt="JAZZ SHIP T-Shirt 灰色版" onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE'">
+          <img
+            src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg"
+            alt="JAZZ SHIP T-Shirt 灰色版"
+            onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE';"
+          >
         </div>
       </div>
     </div>
@@ -1091,14 +1239,37 @@
       <div class="product-grid">
         <div class="gallery fade-in">
           <div class="gallery-main">
-            <img id="mainImg" src="https://i.imgur.com/fAJKI35.jpeg" alt="JAZZ SHIP T-Shirt" onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE'">
+            <img
+              id="mainImg"
+              src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg"
+              alt="JAZZ SHIP T-Shirt"
+              onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE';"
+            >
           </div>
+
           <div class="gallery-thumbs">
-            <div class="thumb active" data-img="https://i.imgur.com/fAJKI35.jpeg" data-type="tee">
-              <img src="https://i.imgur.com/fAJKI35.jpeg" alt="T-Shirt" onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE'">
+            <div class="thumb active" data-img="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg">
+              <img
+                src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg"
+                alt="產品圖 1"
+                onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE';"
+              >
             </div>
-            <div class="thumb" data-img="https://i.imgur.com/yJy5O1z.png" data-type="design">
-              <img src="https://i.imgur.com/yJy5O1z.png" alt="Design" onerror="this.onerror=null; this.src='https://placehold.co/100x100/c9a14a/ffffff?text=DESIGN'">
+
+            <div class="thumb" data-img="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_001.jpg">
+              <img
+                src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_001.jpg"
+                alt="產品圖 2"
+                onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE';"
+              >
+            </div>
+
+            <div class="thumb" data-img="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_003.png">
+              <img
+                src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_003.png"
+                alt="產品圖 3"
+                onerror="this.onerror=null; this.src='https://placehold.co/100x100/c9a14a/ffffff?text=TEE';"
+              >
             </div>
           </div>
         </div>
@@ -1120,7 +1291,6 @@
           </ul>
 
           <div id="order" class="order-form">
-            <!-- Scarcity Stock Indicator -->
             <div class="scarcity-indicator" style="background: rgba(31, 58, 95, 0.05); border-color: rgba(31, 58, 95, 0.15);">
               <div class="scarcity-header" style="justify-content: center; margin-bottom: 0;">
                 <span class="scarcity-text" style="color: var(--navy);">
@@ -1129,7 +1299,6 @@
               </div>
             </div>
 
-            <!-- Pre-order Pickup Notes Card -->
             <div class="pickup-info-box">
               <div class="pickup-title">
                 <i class="fas fa-map-marker-alt"></i> 📍 領取須知（自取服務）
@@ -1202,7 +1371,11 @@
           </tbody>
         </table>
       </div>
-      <p class="size-note fade-in"><i class="fas fa-circle-info" style="color:var(--gold)"></i> 以上尺寸為平量數據，誤差約 ±2 cm 屬正常範圍</p>
+
+      <p class="size-note fade-in">
+        <i class="fas fa-circle-info" style="color:var(--gold)"></i>
+        以上尺寸為平量數據，誤差約 ±2 cm 屬正常範圍
+      </p>
     </div>
   </section>
 
@@ -1214,11 +1387,13 @@
           <div class="big-year">2023</div>
           <div class="tagline">"Make Friends Through Music"<br>音樂啟航，友誼同行</div>
         </div>
+
         <div class="about-content fade-in">
           <span class="section-tag">— About Us —</span>
           <h2>關於 JAZZ SHIP</h2>
           <p>JAZZ SHIP 是一個於 2023 年成立的爵士音樂團體，由一群熱愛即興、相信音樂能跨越語言的夥伴所組成。我們相信，每一場演出就像一艘啟航的船，載著旋律、節奏與聽眾的心，前往未曾抵達的港灣。</p>
           <p>這次的限量 T 恤，由團員共同發想設計，以幾何切面重構帆船的姿態，藍與金的交織象徵深海與燈塔——願這件衣服，成為你日常裡的一段 Solo。</p>
+
           <div class="stats">
             <div class="stat"><div class="stat-num">3+</div><div class="stat-label">Years Active</div></div>
             <div class="stat"><div class="stat-num">50+</div><div class="stat-label">Live Shows</div></div>
@@ -1235,6 +1410,7 @@
         <div class="logo">JAZZ<span style="color:var(--gold)">SHIP</span></div>
         <p>一艘乘載音樂與友誼的爵士船。<br>Since 2023 · Make Friends Through Music.</p>
       </div>
+
       <div>
         <h4>快速連結</h4>
         <ul>
@@ -1244,15 +1420,17 @@
           <li><a href="#order">搶先預購</a></li>
         </ul>
       </div>
+
       <div>
         <h4>追蹤我們</h4>
         <div class="socials">
-          <a href="https://www.instagram.com/taichung_jazzship_orchestra?igsh=MWNrdmM1eGplYTM4Zw%3D%3D&amp;utm_source=qr" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/taichung_jazzship_orchestra?igsh=MWNrdmM1eGplYTM4Zw%3D%3D&utm_source=qr" class="social-icon" aria-label="Instagram" target="_blank" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
           <a href="https://www.facebook.com/jazzshiporchestra" class="social-icon" aria-label="Facebook" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
         </div>
         <p style="color:rgba(255,255,255,.5);font-size:.85rem;margin-top:18px">有任何問題歡迎私訊我們！</p>
       </div>
     </div>
+
     <div class="footer-bottom">
       © 2026 JAZZ SHIP. All rights reserved. · 限量預購截止日 2026/06/15
     </div>
@@ -1260,7 +1438,7 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 1. 滾動漸顯動畫效果 (Intersection Observer)
+      // 滾動漸顯動畫
       const fadeElements = document.querySelectorAll('.fade-in');
       const observerOptions = {
         root: null,
@@ -1272,14 +1450,14 @@
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target); 
+            observer.unobserve(entry.target);
           }
         });
       }, observerOptions);
 
       fadeElements.forEach(el => animationObserver.observe(el));
 
-      // 2. 商品展示圖切換功能（新增特定種類微調位置邏輯）
+      // 商品展示圖切換
       const thumbs = document.querySelectorAll('.thumb');
       const mainImg = document.getElementById('mainImg');
 
@@ -1287,23 +1465,16 @@
         thumb.addEventListener('click', () => {
           thumbs.forEach(t => t.classList.remove('active'));
           thumb.classList.add('active');
+
           const newImgUrl = thumb.getAttribute('data-img');
-          const imgType = thumb.getAttribute('data-type');
-          
           if (newImgUrl) {
             mainImg.src = newImgUrl;
-            
-            // 如果切換到設計圖，加入向上位移 class
-            if (imgType === 'design') {
-              mainImg.classList.add('shift-up');
-            } else {
-              mainImg.classList.remove('shift-up');
-            }
+            mainImg.classList.remove('shift-up');
           }
         });
       });
 
-      // 3. 預購截止倒數計時器功能 (2026 年 6 月 15 日 23:59:59)
+      // 預購截止倒數計時器
       const targetDate = new Date("June 15, 2026 23:59:59").getTime();
 
       const updateCountdown = () => {
@@ -1311,11 +1482,10 @@
         const difference = targetDate - now;
 
         if (difference < 0) {
-          // 時間到，顯示已結束
           const countdownContainer = document.getElementById('countdown-hero');
           if (countdownContainer) {
             countdownContainer.innerHTML = `
-              <div style="font-size: 1.2rem; color: var(--red-alert); font-weight: bold; letter-spacing: 1.5px; width:100%; text-align:center; padding: 10px 0;">
+              <div style="font-size: 1.2rem; color: #ffb3b3; font-weight: bold; letter-spacing: 1.5px; width:100%; text-align:center; padding: 10px 0;">
                 ⚠️ 預購活動已截止 Pre-Order Closed
               </div>
             `;
@@ -1324,20 +1494,17 @@
           return;
         }
 
-        // 時間計算邏輯
         const days = Math.floor(difference / (1000 * 60 * 60 * 24));
         const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
         const seconds = Math.floor((difference % (1000 * 60)) / 1000);
 
-        // 更新 UI
         document.getElementById('days').innerText = days.toString().padStart(2, '0');
         document.getElementById('hours').innerText = hours.toString().padStart(2, '0');
         document.getElementById('minutes').innerText = minutes.toString().padStart(2, '0');
         document.getElementById('seconds').innerText = seconds.toString().padStart(2, '0');
       };
 
-      // 啟動倒數計時，每秒刷新
       updateCountdown();
       const countdownInterval = setInterval(updateCountdown, 1000);
     });
