@@ -1,4 +1,4 @@
-Copy<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-TW" data-theme="light">
 <head>
   <meta charset="utf-8">
@@ -384,7 +384,6 @@ Copy<!DOCTYPE html>
         grid-template-columns: 1fr;
         gap: 40px;
       }
-
       .hero {
         padding-top: 110px;
       }
@@ -459,16 +458,8 @@ Copy<!DOCTYPE html>
       transition: transform .4s ease;
     }
 
-    .gallery-main img.shift-up {
-      transform: translateY(-20px);
-    }
-
     .gallery-main:hover img {
       transform: scale(1.03);
-    }
-
-    .gallery-main:hover img.shift-up {
-      transform: translateY(-20px) scale(1.03);
     }
 
     .gallery-thumbs {
@@ -550,6 +541,67 @@ Copy<!DOCTYPE html>
       font-size: .9rem;
     }
 
+    /* Color selector */
+    .color-selector {
+      margin: 22px 0 10px;
+    }
+
+    .color-title {
+      font-size: .88rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: .3px;
+    }
+
+    .color-options {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .color-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      border: 1.5px solid var(--line);
+      background: #fff;
+      color: var(--navy);
+      font-size: .92rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all .2s ease;
+    }
+
+    .color-chip:hover {
+      border-color: var(--gold);
+      transform: translateY(-1px);
+    }
+
+    .color-chip.active {
+      border-color: var(--navy);
+      background: rgba(31,58,95,.06);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .color-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      border: 1px solid rgba(0,0,0,.12);
+      flex-shrink: 0;
+    }
+
+    .color-dot.gray {
+      background: linear-gradient(135deg, #d7d7d7, #9a9a9a);
+    }
+
+    .color-dot.black {
+      background: linear-gradient(135deg, #444, #111);
+    }
+
     .features {
       list-style: none;
       margin: 28px 0;
@@ -614,38 +666,6 @@ Copy<!DOCTYPE html>
 
     .scarcity-text i {
       animation: pulseAlert 1.2s infinite;
-    }
-
-    .scarcity-count {
-      font-size: .85rem;
-      color: var(--text-soft);
-    }
-
-    .scarcity-count span {
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 1.15rem;
-      color: var(--navy);
-      font-weight: bold;
-    }
-
-    .progress-bar {
-      height: 10px;
-      background: #e6ebf2;
-      border-radius: 999px;
-      overflow: hidden;
-    }
-
-    .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--gold) 0%, var(--red-alert) 100%);
-      width: 82%;
-      border-radius: 999px;
-      animation: fillAnimation 1.5s ease-out forwards;
-    }
-
-    @keyframes fillAnimation {
-      from { width: 0%; }
-      to { width: 82%; }
     }
 
     .pickup-info-box {
@@ -839,7 +859,6 @@ Copy<!DOCTYPE html>
       .payment-badges {
         flex-direction: column;
       }
-
       .secure-grid {
         grid-template-columns: 1fr;
       }
@@ -1022,7 +1041,6 @@ Copy<!DOCTYPE html>
       .about-grid {
         grid-template-columns: 1fr;
       }
-
       .about-visual {
         aspect-ratio: auto;
         padding: 40px;
@@ -1219,8 +1237,9 @@ Copy<!DOCTYPE html>
         <div class="hero-image-wrap">
           <div class="hero-tag">LIMITED 50</div>
           <img
+            id="heroProductImg"
             src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg"
-            alt="JAZZ SHIP T-Shirt 灰色版"
+            alt="JAZZ SHIP T-Shirt"
             onerror="this.onerror=null; this.src='https://placehold.co/600x600/1f3a5f/ffffff?text=JAZZ+SHIP+TEE';"
           >
         </div>
@@ -1247,31 +1266,7 @@ Copy<!DOCTYPE html>
             >
           </div>
 
-          <div class="gallery-thumbs">
-            <div class="thumb active" data-img="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg">
-              <img
-                src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg"
-                alt="產品圖 1"
-                onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE';"
-              >
-            </div>
-
-            <div class="thumb" data-img="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_001.jpg">
-              <img
-                src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_001.jpg"
-                alt="產品圖 2"
-                onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE';"
-              >
-            </div>
-
-            <div class="thumb" data-img="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_003.png">
-              <img
-                src="https://file.vidhubfile.com/imgtok/post/QmyeulU/f_003.png"
-                alt="產品圖 3"
-                onerror="this.onerror=null; this.src='https://placehold.co/100x100/c9a14a/ffffff?text=TEE';"
-              >
-            </div>
-          </div>
+          <div class="gallery-thumbs" id="galleryThumbs"></div>
         </div>
 
         <div class="product-info fade-in">
@@ -1283,9 +1278,23 @@ Copy<!DOCTYPE html>
             <span class="price-note">／件・線上預購付款價</span>
           </div>
 
+          <div class="color-selector">
+            <div class="color-title">選擇顏色</div>
+            <div class="color-options">
+              <button class="color-chip active" data-color="gray" type="button">
+                <span class="color-dot gray"></span>
+                灰色款
+              </button>
+              <button class="color-chip" data-color="black" type="button">
+                <span class="color-dot black"></span>
+                黑色款
+              </button>
+            </div>
+          </div>
+
           <ul class="features">
             <li><i class="fas fa-fire" style="color:var(--red-alert)"></i><span><strong>首批限量：</strong>50 件，售完即截止</span></li>
-            <li><i class="fas fa-check-circle"></i><span><strong>限量設計：</strong>2026 主視覺幾何拼貼，獨家販售</span></li>
+            <li><i class="fas fa-check-circle"></i><span><strong>顏色選擇：</strong>灰色 / 黑色</span></li>
             <li><i class="fas fa-check-circle"></i><span><strong>四種尺寸：</strong>S / M / L / XL 適合男女</span></li>
             <li><i class="fas fa-check-circle"></i><span><strong>舒適親膚：</strong>純棉混紡，柔軟透氣不變形</span></li>
           </ul>
@@ -1438,7 +1447,6 @@ Copy<!DOCTYPE html>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      // 滾動漸顯動畫
       const fadeElements = document.querySelectorAll('.fade-in');
       const observerOptions = {
         root: null,
@@ -1457,24 +1465,76 @@ Copy<!DOCTYPE html>
 
       fadeElements.forEach(el => animationObserver.observe(el));
 
-      // 商品展示圖切換
-      const thumbs = document.querySelectorAll('.thumb');
+      const productImages = {
+        gray: [
+          "https://file.vidhubfile.com/imgtok/post/QmyeulU/f_002.jpg",
+          "https://file.vidhubfile.com/imgtok/post/QmyeulU/f_001.jpg",
+          "https://file.vidhubfile.com/imgtok/post/QmyeulU/f_003.png"
+        ],
+        black: [
+          "https://i.imgur.com/xguCQZQ.jpeg",
+          "https://i.imgur.com/G3mzHo2.jpeg"
+        ]
+      };
+
       const mainImg = document.getElementById('mainImg');
+      const heroProductImg = document.getElementById('heroProductImg');
+      const thumbsContainer = document.getElementById('galleryThumbs');
+      const colorChips = document.querySelectorAll('.color-chip');
 
-      thumbs.forEach(thumb => {
+      let currentColor = 'gray';
+
+      function createThumb(src, isActive = false) {
+        const thumb = document.createElement('div');
+        thumb.className = `thumb${isActive ? ' active' : ''}`;
+        thumb.setAttribute('data-img', src);
+
+        thumb.innerHTML = `
+          <img
+            src="${src}"
+            alt="產品縮圖"
+            onerror="this.onerror=null; this.src='https://placehold.co/100x100/1f3a5f/ffffff?text=TEE';"
+          >
+        `;
+
         thumb.addEventListener('click', () => {
-          thumbs.forEach(t => t.classList.remove('active'));
+          document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
           thumb.classList.add('active');
+          mainImg.src = src;
+        });
 
-          const newImgUrl = thumb.getAttribute('data-img');
-          if (newImgUrl) {
-            mainImg.src = newImgUrl;
-            mainImg.classList.remove('shift-up');
-          }
+        return thumb;
+      }
+
+      function renderGallery(color) {
+        const images = productImages[color];
+        currentColor = color;
+
+        if (!images || images.length === 0) return;
+
+        mainImg.src = images[0];
+        heroProductImg.src = images[0];
+
+        thumbsContainer.innerHTML = '';
+        images.forEach((src, index) => {
+          thumbsContainer.appendChild(createThumb(src, index === 0));
+        });
+
+        colorChips.forEach(chip => {
+          chip.classList.toggle('active', chip.dataset.color === color);
+        });
+      }
+
+      colorChips.forEach(chip => {
+        chip.addEventListener('click', () => {
+          const color = chip.dataset.color;
+          renderGallery(color);
         });
       });
 
-      // 預購截止倒數計時器
+      renderGallery('gray');
+
+      // 倒數計時
       const targetDate = new Date("June 15, 2026 23:59:59").getTime();
 
       const updateCountdown = () => {
